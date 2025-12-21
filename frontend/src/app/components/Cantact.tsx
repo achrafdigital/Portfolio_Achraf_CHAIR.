@@ -5,7 +5,7 @@ import { Send, Linkedin, Github, Globe } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section className="relative w-full py-24 overflow-hidden">
+    <section id="contact" className="relative w-full py-24 overflow-hidden">
       {/* Background gradient */}
       <div
         className="absolute inset-0 "

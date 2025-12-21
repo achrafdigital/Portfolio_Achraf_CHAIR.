@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Skill {
   name: string;
@@ -86,7 +87,10 @@ const Skills: React.FC = () => {
   const duplicatedSkills = [...skills, ...skills, ...skills];
 
   return (
-    <section className="relative bg-[#050505] py-16 md:py-24 overflow-hidden">
+    <section
+      id="skills"
+      className="relative bg-[#050505] py-16 md:py-24 overflow-hidden"
+    >
       {/* Background Image */}
       <div className="absolute inset-0 bg-[url('/images/skillsbg.jpeg')] bg-cover bg-center bg-no-repeat" />
 
@@ -141,9 +145,13 @@ const Skills: React.FC = () => {
 
         {/* See More Button */}
         <div className="flex justify-center mt-12 md:mt-16">
-          <button className="flex items-center gap-2 md:gap-3 bg-[#fdfaf3] text-black px-6 py-3 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold hover:bg-white transition-all active:scale-95">
-            See More <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-          </button>
+          <Link href="/skills">
+            {" "}
+            {/* 2. Wrap button with Link and point to /skills */}
+            <button className="flex items-center gap-2 md:gap-3 bg-[#fdfaf3] text-black px-6 py-3 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold hover:bg-white transition-all active:scale-95">
+              See More <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+          </Link>
         </div>
       </div>
     </section>

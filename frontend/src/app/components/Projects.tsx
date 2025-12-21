@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Project {
   title: string;
@@ -52,6 +53,7 @@ const projects: Project[] = [
 const RecentWorks: React.FC = () => {
   return (
     <section
+      id="projects"
       className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-12 overflow-hidden"
       style={{
         background:
@@ -155,9 +157,11 @@ const RecentWorks: React.FC = () => {
 
         {/* See More Button */}
         <div className="flex justify-center mt-12 md:mt-8">
-          <button className="flex items-center gap-2 md:gap-3 bg-[#fdfaf3] text-black px-6 py-3 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold hover:bg-white transition-all active:scale-95">
-            See More <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-          </button>
+          <Link href="/projects">
+            <button className="flex items-center gap-2 md:gap-3 bg-[#fdfaf3] text-black px-6 py-3 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold hover:bg-white transition-all active:scale-95">
+              See More <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+          </Link>
         </div>
       </div>
     </section>

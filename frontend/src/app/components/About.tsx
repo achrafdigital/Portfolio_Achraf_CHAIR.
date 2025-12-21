@@ -7,6 +7,7 @@ const About = () => {
 
   return (
     <section
+      id="about"
       className="min-h-screen w-full flex items-center justify-center"
       style={{
         background:
@@ -33,7 +34,12 @@ const About = () => {
           {/* PROFILE */}
           <div className="relative shrink-0">
             <div className={`${badgeStyle} -left-10 top-1/2 -translate-y-1/2`}>
-              <Image src="/images/Innovation.png" alt="" width={16} height={16} />
+              <Image
+                src="/images/Innovation.png"
+                alt=""
+                width={16}
+                height={16}
+              />
               <span>Innovation</span>
             </div>
 
@@ -70,10 +76,10 @@ const About = () => {
             </h2>
 
             <p className="text-sm sm:text-base opacity-90 font-light leading-relaxed mb-8">
-              With over two years of experience in web development and artificial
-              intelligence, I create modern web applications and innovative AI
-              solutions. I manage the entire development lifecycle—from UI/UX
-              design to backend systems and ML integration.
+              With over two years of experience in web development and
+              artificial intelligence, I create modern web applications and
+              innovative AI solutions. I manage the entire development
+              lifecycle—from UI/UX design to backend systems and ML integration.
             </p>
 
             {/* SKILLS */}
@@ -120,11 +126,21 @@ const About = () => {
             <div className="flex flex-wrap gap-4">
               <button className="flex items-center gap-2 bg-[#F2EAE4] text-[#050709] px-6 py-3 rounded-lg font-bold text-xs sm:text-sm">
                 LET’S WORK TOGETHER
-                <Image src="/images/handshake.png" width={18} height={18} alt="" />
+                <Image
+                  src="/images/handshake.png"
+                  width={18}
+                  height={18}
+                  alt=""
+                />
               </button>
 
               <button className="flex items-center gap-2 bg-[#0A1211] text-[#F2EAE4] px-6 py-3 rounded-lg font-bold text-xs sm:text-sm border border-[#E0D2B7]">
-                <Image src="/images/DOWNLOAD.png" width={16} height={16} alt="" />
+                <Image
+                  src="/images/DOWNLOAD.png"
+                  width={16}
+                  height={16}
+                  alt=""
+                />
                 DOWNLOAD CV
               </button>
             </div>
