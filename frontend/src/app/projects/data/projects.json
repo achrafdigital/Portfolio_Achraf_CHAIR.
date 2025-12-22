@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "morocco-estate-ml",
+    "title": "MoroccoEstateML",
+    "category": "AI & Business",
+    "description": "Outil intelligent d’estimation des prix immobiliers sur le marché marocain.",
+    "details": "Ce projet vise à automatiser l’estimation du prix des appartements au Maroc, un marché caractérisé par une forte variabilité des prix selon la localisation et les caractéristiques du bien. J’ai conçu un pipeline complet de machine learning, en commençant par l’analyse exploratoire des données pour comprendre les distributions, corrélations et anomalies. J’ai ensuite nettoyé et préparé les données (gestion des valeurs manquantes, transformation des variables, encodage des villes, détection et suppression des valeurs aberrantes). Plusieurs modèles de régression ont été entraînés et comparés (Régression Linéaire, Random Forest, SVR, Gradient Boosting), avec évaluation via RMSE, MAE et R². Une validation croisée et une optimisation des hyperparamètres ont permis de sélectionner le modèle le plus performant, sauvegardé pour une intégration future dans une application web d’estimation immobilière.",
+    "tags": ["Python", "Pandas", "Scikit-learn", "Regression", "EDA"],
+    "image": "/images/real-estate.png",
+    "githubUrl": "https://github.com/achrafdevl/Simplon-Python-Challenges/tree/main/Brief_2_SalesHouses",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "diabetes-risk-ml",
+    "title": "DiabetesRiskML",
+    "category": "AI & Healthcare",
+    "description": "Prédiction du risque de diabète à partir de données cliniques.",
+    "details": "Ce projet a pour objectif d’aider à l’identification précoce des patients à risque de diabète à partir de données médicales standard. J’ai réalisé une analyse exploratoire approfondie afin de comprendre les relations entre les variables cliniques. Les données ont été nettoyées avec traitement des valeurs manquantes, suppression des valeurs aberrantes et standardisation des variables numériques. J’ai d’abord appliqué un clustering K-Means pour identifier des profils de patients similaires et interpréter les groupes à risque. Ces clusters ont ensuite servi de base à l’entraînement de modèles de classification supervisée (Random Forest, SVM, Gradient Boosting, Régression Logistique). Les performances ont été évaluées avec des métriques adaptées au domaine médical (précision, rappel, F1-score), afin de sélectionner un modèle fiable pour l’aide à la décision.",
+    "tags": [
+      "Python",
+      "Scikit-learn",
+      "Clustering",
+      "Classification",
+      "Healthcare"
+    ],
+    "image": "/images/diabetes-risk.png",
+    "githubUrl": "https://github.com/achrafdevl/Brief__2__LaboBiom-dical.git",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "securemail-ai",
+    "title": "SecureMail AI",
+    "category": "AI & Data Science",
+    "description": "Système intelligent de détection des emails spam.",
+    "details": "Ce projet consiste à développer un système automatique capable de classifier les emails en spam ou non-spam afin d’améliorer la sécurité des communications. J’ai conçu un pipeline NLP complet incluant le nettoyage du texte, la tokenisation, la suppression des stopwords, la suppression de la ponctuation et le stemming avec NLTK. Les données textuelles ont été vectorisées à l’aide de TF-IDF, puis plusieurs modèles de classification ont été entraînés et comparés, notamment Naive Bayes, SVM et Decision Tree. Les modèles ont été évalués à l’aide de matrices de confusion, précision, rappel et F1-score. Une interface Streamlit a été développée pour permettre aux utilisateurs de tester la classification d’emails en temps réel.",
+    "tags": ["NLP", "NLTK", "TF-IDF", "Scikit-learn", "Streamlit"],
+    "image": "/images/spam-filter.png",
+    "githubUrl": "https://github.com/achrafdevl/SmartInbox",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "diabetoweb",
+    "title": "DiabetoWeb",
+    "category": "AI & Healthcare",
+    "description": "Application web médicale pour la gestion des patients et la prédiction du diabète.",
+    "details": "DiabetoWeb est une application web destinée aux médecins pour centraliser la gestion des dossiers patients et assister le diagnostic du diabète. J’ai développé le backend avec FastAPI et PostgreSQL, incluant l’authentification sécurisée des médecins, la gestion CRUD des patients et le stockage des prédictions. Un modèle de machine learning préalablement entraîné est chargé au démarrage de l’application pour prédire le risque de diabète à partir des données cliniques saisies. Le frontend a été réalisé en HTML/CSS avec Jinja2 pour afficher les formulaires, les résultats de prédiction et un tableau de bord récapitulatif. Ce projet met en valeur l’intégration complète entre ML, backend et base de données.",
+    "tags": [
+      "FastAPI",
+      "PostgreSQL",
+      "Machine Learning",
+      "Healthcare",
+      "Full Stack"
+    ],
+    "image": "/images/diabetoweb.png",
+    "githubUrl": "https://github.com/achrafdevl/CardioSpark",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "booksmart",
+    "title": "BookSmart",
+    "category": "Web & AI",
+    "description": "Plateforme intelligente de prêt et de recommandation de livres.",
+    "details": "BookSmart est une plateforme web conçue pour moderniser la gestion d’une bibliothèque et proposer des recommandations personnalisées de livres. J’ai travaillé sur la conception du backend avec FastAPI et PostgreSQL pour gérer les adhérents, les livres, les emprunts et les réservations. Les données des livres ont été collectées via web scraping avec Selenium. Un système de recommandation basé sur la similarité cosinus analyse les préférences et l’historique des emprunts afin de suggérer des livres pertinents. Le projet met en avant l’utilisation conjointe du machine learning, du web scraping et du développement backend.",
+    "tags": [
+      "Recommendation System",
+      "FastAPI",
+      "PostgreSQL",
+      "Selenium",
+      "Cosine Similarity"
+    ],
+    "image": "/images/booksmart.png",
+    "githubUrl": "https://github.com/achrafdevl/Bib_Readers",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "sentiment-api",
+    "title": "Sentiment Analysis API",
+    "category": "MLOps & Deployment",
+    "description": "API d’analyse de sentiments basée sur un modèle Hugging Face.",
+    "details": "Ce projet consiste à développer une API REST capable d’analyser automatiquement le sentiment d’un texte et de retourner un score de confiance. J’ai utilisé le modèle pré-entraîné distilbert-base-uncased-finetuned-sst-2-english afin de garantir de bonnes performances sur CPU. L’API a été développée avec FastAPI, documentée via Swagger, conteneurisée avec Docker et déployée publiquement sur Hugging Face Spaces. Une page HTML simple permet de tester facilement l’API. Ce projet démontre mes compétences en déploiement de modèles NLP en production.",
+    "tags": ["FastAPI", "Hugging Face", "NLP", "Docker", "API"],
+    "image": "/images/sentiment-api.png",
+    "githubUrl": "https://github.com/achrafdevl/Arborescense.git",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "obesitrack",
+    "title": "ObesiTrack",
+    "category": "AI & Healthcare",
+    "description": "API sécurisée de prédiction de l’obésité avec authentification JWT.",
+    "details": "ObesiTrack est une application complète combinant machine learning et sécurité applicative pour prédire le niveau d’obésité d’un utilisateur. J’ai développé une API FastAPI sécurisée avec JWT, permettant l’inscription, l’authentification et l’accès protégé aux prédictions. Les données et l’historique des prédictions sont stockés dans PostgreSQL. Le modèle de classification multiclasse est intégré dans l’API et renvoie les probabilités associées à chaque catégorie. L’ensemble de l’application est dockerisé pour assurer portabilité et reproductibilité.",
+    "tags": ["FastAPI", "JWT", "Docker", "PostgreSQL", "MLOps"],
+    "image": "/images/obesitrack.png",
+    "githubUrl": "https://github.com/achrafdevl/ObesiTrack",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "car-price-ml",
+    "title": "CarPriceML",
+    "category": "MLOps & Deployment",
+    "description": "Système complet de prédiction du prix des voitures d’occasion.",
+    "details": "Ce projet vise à estimer le prix des voitures d’occasion à partir de leurs caractéristiques techniques. J’ai réalisé le prétraitement des données, l’analyse exploratoire et l’entraînement d’un modèle de régression évalué avec RMSE, MAE et R². Le modèle est exposé via une API FastAPI et consommé par une interface Streamlit permettant aux utilisateurs de saisir les caractéristiques d’un véhicule et d’obtenir une estimation instantanée. L’ensemble du système est dockerisé avec Docker Compose, illustrant une approche MLOps complète.",
+    "tags": [
+      "Machine Learning",
+      "FastAPI",
+      "Streamlit",
+      "Docker",
+      "Regression"
+    ],
+    "image": "/images/car-price.png",
+    "githubUrl": "https://github.com/achrafdevl/CarPriceML",
+    "liveUrl": "#"
+  }
+]

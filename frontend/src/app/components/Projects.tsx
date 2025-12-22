@@ -6,6 +6,7 @@ import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import projectsData from "../projects/data/projects.json";
 
 interface Project {
   title: string;
@@ -17,38 +18,7 @@ interface Project {
   liveUrl: string;
 }
 
-const projects: Project[] = [
-  {
-    title: "MediCare AI",
-    category: "Healthcare Platform",
-    description:
-      "Patient management system with AI-assisted diagnosis suggestions and automated appointment scheduling for clinics.",
-    tags: ["React.js", "TensorFlow", "PostgreSQL", "Python"],
-    image: "/images/project-1.png",
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    title: "EcoHarvest AI",
-    category: "AgriTech Solution",
-    description:
-      "Smart farming dashboard utilizing satellite imagery and IoT sensors to predict crop yields and optimize water usage.",
-    tags: ["Next.js", "FastAPI", "MongoDB", "PyTorch"],
-    image: "/images/project-2.png",
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    title: "EauVerse VR",
-    category: "Real Estate Tech",
-    description:
-      "Immersive 3D property touring platform with real-time lighting adjustments and interactive furniture placement.",
-    tags: ["Three.js", "React", "Node.js", "Framer Motion"],
-    image: "/images/project-3.png",
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-];
+const projects: Project[] = projectsData as Project[];
 
 const RecentWorks: React.FC = () => {
   return (
@@ -80,7 +50,7 @@ const RecentWorks: React.FC = () => {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, index) => (
+          {projects.slice(0, 3).map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
