@@ -1,14 +1,47 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Send, Linkedin, Github, Globe } from "lucide-react";
+import emailjs from "emailjs-com";
 
 const ContactSection = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setLoading(true);
+    setSuccess(null);
+
+    emailjs.sendForm(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      formRef.current!,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+    )
+    
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSuccess("Message sent successfully!");
+          formRef.current?.reset();
+        },
+        (error) => {
+          console.error(error.text);
+          setSuccess("Failed to send message. Try again later.");
+        }
+      )
+      .finally(() => setLoading(false));
+  };
+
   return (
     <section id="contact" className="relative w-full py-24 overflow-hidden">
       {/* Background gradient */}
       <div
-        className="absolute inset-0 "
+        className="absolute inset-0"
         style={{
           background:
             "linear-gradient(to top, #050709 20%, #072C32 45%, #064C55 60%, #0A7A88 80%)",
@@ -20,12 +53,11 @@ const ContactSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f3e8d0] mb-4">
-            Let&apos;s Work Together
+            Let`&apos;s Work Together
           </h2>
           <p className="text-gray-200 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Ready to build something extraordinary together? Let&apos;s
-            transform your vision into reality—one pixel, one line of code at a
-            time.
+            Ready to build something extraordinary together? Let`&apos;s transform your
+            vision into reality—one pixel, one line of code at a time.
           </p>
         </div>
 
@@ -37,87 +69,80 @@ const ContactSection = () => {
               Connect With Me
             </h3>
             <p className="text-gray-300 max-w-md leading-relaxed mb-8">
-              I&apos;m currently available for freelance work and full-time
-              opportunities. Whether you have a specific project in mind or just
-              want to connect, don&apos;t hesitate to reach out!
+              I`&apos;m currently available for freelance work and full-time opportunities.
+              Whether you have a specific project in mind or just want to connect, don`&apos;t hesitate to reach out!
             </p>
 
             {/* Social icons */}
             <div className="flex items-center gap-6">
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition"
-                aria-label="LinkedIn"
-              >
+              <a href="#" className="text-gray-300 hover:text-white transition" aria-label="LinkedIn">
                 <Linkedin size={22} />
               </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition"
-                aria-label="GitHub"
-              >
+              <a href="#" className="text-gray-300 hover:text-white transition" aria-label="GitHub">
                 <Github size={22} />
               </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition"
-                aria-label="Website"
-              >
+              <a href="#" className="text-gray-300 hover:text-white transition" aria-label="Website">
                 <Globe size={22} />
               </a>
             </div>
           </div>
 
           {/* Right – Form */}
-          <form className="space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm text-gray-300 mb-2">Name</label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your name"
                   className="w-full px-4 py-3 rounded-lg bg-white/30 text-white placeholder-gray-200 outline-none border border-white/30 focus:border-white"
+                  required
                 />
               </div>
 
               <div>
-                <label className="block text-sm text-gray-300 mb-2">
-                  Email
-                </label>
+                <label className="block text-sm text-gray-300 mb-2">Email</label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="your@email.com"
                   className="w-full px-4 py-3 rounded-lg bg-white/30 text-white placeholder-gray-200 outline-none border border-white/30 focus:border-white"
+                  required
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm text-gray-300 mb-2">
-                Message
-              </label>
+              <label className="block text-sm text-gray-300 mb-2">Message</label>
               <textarea
+                name="message"
                 rows={5}
                 placeholder="Tell me about your project..."
                 className="w-full px-4 py-3 rounded-lg bg-white/30 text-white placeholder-gray-200 outline-none border border-white/30 focus:border-white resize-none"
+                required
               />
             </div>
 
             <button
               type="submit"
-              className="inline-flex items-center gap-3 bg-[#f3f4f6] text-black px-8 py-4 rounded-xl font-semibold hover:bg-white transition"
+              className={`inline-flex items-center gap-3 bg-[#f3f4f6] text-black px-8 py-4 rounded-xl font-semibold hover:bg-white transition ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={loading}
             >
               <Send size={18} />
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
+            {success && <p className="text-green-500 mt-2">{success}</p>}
           </form>
         </div>
 
         {/* Footer line */}
         <div className="mt-10 border-t border-white/10 pt-8 text-center">
-          <p className="text-gray-400 text-sm sm:text-base ">
-            Every project here reflects my journey, values, and commitment to
-            quality.
+          <p className="text-gray-400 text-sm sm:text-base">
+            Every project here reflects my journey, values, and commitment to quality.
           </p>
         </div>
       </div>
