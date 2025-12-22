@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { Send, Linkedin, Github, Globe } from "lucide-react";
+import { Send } from "lucide-react";
 import emailjs from "emailjs-com";
+import Link from "next/link";
+import Image from "next/image";
 
 const ContactSection = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -16,13 +18,14 @@ const ContactSection = () => {
     setLoading(true);
     setSuccess(null);
 
-    emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-      formRef.current!,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-    )
-    
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+
       .then(
         (result) => {
           console.log(result.text);
@@ -49,15 +52,16 @@ const ContactSection = () => {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 ">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f3e8d0] mb-4">
             Let`&apos;s Work Together
           </h2>
           <p className="text-gray-200 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Ready to build something extraordinary together? Let`&apos;s transform your
-            vision into reality—one pixel, one line of code at a time.
+            Ready to build something extraordinary together? Let`&apos;s
+            transform your vision into reality—one pixel, one line of code at a
+            time.
           </p>
         </div>
 
@@ -69,21 +73,54 @@ const ContactSection = () => {
               Connect With Me
             </h3>
             <p className="text-gray-300 max-w-md leading-relaxed mb-8">
-              I`&apos;m currently available for freelance work and full-time opportunities.
-              Whether you have a specific project in mind or just want to connect, don`&apos;t hesitate to reach out!
+              I`&apos;m currently available for freelance work and full-time
+              opportunities. Whether you have a specific project in mind or just
+              want to connect, don`&apos;t hesitate to reach out!
             </p>
 
             {/* Social icons */}
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-gray-300 hover:text-white transition" aria-label="LinkedIn">
-                <Linkedin size={22} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition" aria-label="GitHub">
-                <Github size={22} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition" aria-label="Website">
-                <Globe size={22} />
-              </a>
+            <div className="mt-8 flex items-center justify-center gap-2 sm:gap-2 sm:justify-start md:justify-start">
+              {[
+                {
+                  href: "https://github.com/achrafdevl",
+                  label: "GitHub",
+                  src: "/images/github.png",
+                },
+                {
+                  href: "https://www.linkedin.com/in/achraf-chair/",
+                  label: "LinkedIn",
+                  src: "/images/linkdin.png",
+                },
+                {
+                  href: "https://dribbble.com/Achraf_CHAIR",
+                  label: "Dribbble",
+                  src: "/images/dribbble.png",
+                },
+              ].map((icon) => (
+                <Link
+                  key={icon.label}
+                  href={icon.href}
+                  target="_blank"
+                  aria-label={icon.label}
+                  className="
+        flex items-center justify-center
+        rounded-full
+        p-2 sm:p-2
+        opacity-70
+        transition
+        hover:opacity-100
+        hover:scale-110
+      "
+                >
+                  <Image
+                    src={icon.src}
+                    alt={icon.label}
+                    width={20}
+                    height={20}
+                    className="sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] lg:w-[26px] lg:h-[26px] xl:w-[28px] xl:h-[28px]"
+                  />
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -102,7 +139,9 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm text-gray-300 mb-2">Email</label>
+                <label className="block text-sm text-gray-300 mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -114,7 +153,9 @@ const ContactSection = () => {
             </div>
 
             <div>
-              <label className="block text-sm text-gray-300 mb-2">Message</label>
+              <label className="block text-sm text-gray-300 mb-2">
+                Message
+              </label>
               <textarea
                 name="message"
                 rows={5}
@@ -142,7 +183,8 @@ const ContactSection = () => {
         {/* Footer line */}
         <div className="mt-10 border-t border-white/10 pt-8 text-center">
           <p className="text-gray-400 text-sm sm:text-base">
-            Every project here reflects my journey, values, and commitment to quality.
+            Every project here reflects my journey, values, and commitment to
+            quality.
           </p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const About = () => {
   const badgeStyle =
@@ -33,27 +34,42 @@ const About = () => {
         <div className="flex flex-col lg:flex-row items-center justify-center gap-14 lg:gap-24">
           {/* PROFILE */}
           <div className="relative shrink-0">
-            <div className={`${badgeStyle} -left-10 top-1/2 -translate-y-1/2`}>
+            {/* Badges - Hidden on small screens, shown on md+ */}
+            <div
+              className={`${badgeStyle} hidden md:flex -left-10 top-1/2 -translate-y-1/2 lg:-left-12 xl:-left-14`}
+            >
               <Image
                 src="/images/Innovation.png"
                 alt=""
                 width={16}
                 height={16}
+                className="w-4 h-4 md:w-5 md:h-5"
               />
               <span>Innovation</span>
             </div>
 
-            <div className={`${badgeStyle} -right-8 top-10`}>
-              <Image src="/images/code.png" alt="" width={16} height={16} />
+            <div
+              className={`${badgeStyle} hidden md:flex -right-8 top-10 lg:-right-10 xl:-right-12`}
+            >
+              <Image
+                src="/images/code.png"
+                alt=""
+                width={16}
+                height={16}
+                className="w-4 h-4 md:w-5 md:h-5"
+              />
               <span>Clean Code</span>
             </div>
 
-            <div className={`${badgeStyle} -right-4 bottom-14`}>
+            <div
+              className={`${badgeStyle} hidden md:flex -right-4 bottom-14 lg:-right-6 xl:-right-8`}
+            >
               <Image
                 src="/images/AlSolutions.png"
                 alt=""
                 width={16}
                 height={16}
+                className="w-4 h-4 md:w-5 md:h-5"
               />
               <span>AI Solutions</span>
             </div>
@@ -64,7 +80,7 @@ const About = () => {
                 alt="Profile"
                 width={380}
                 height={380}
-                className="w-[260px] sm:w-[300px] lg:w-[360px] h-auto"
+                className="w-[260px] sm:w-[300px] lg:w-[360px] xl:w-[400px] h-auto"
               />
             </div>
           </div>
@@ -124,25 +140,33 @@ const About = () => {
 
             {/* ACTIONS */}
             <div className="flex flex-wrap gap-4">
-              <button className="flex items-center gap-2 bg-[#F2EAE4] text-[#050709] px-6 py-3 rounded-lg font-bold text-xs sm:text-sm">
-                LET’S WORK TOGETHER
-                <Image
-                  src="/images/handshake.png"
-                  width={18}
-                  height={18}
-                  alt=""
-                />
-              </button>
+              <Link href="#contact">
+                <span className="flex items-center gap-2 bg-[#F2EAE4] text-[#050709] px-6 py-3 rounded-lg font-bold text-xs sm:text-sm lg:text-base xl:text-lg">
+                  Let’s Work Together
+                  <Image
+                    src="/images/handshake.png"
+                    width={18}
+                    height={18}
+                    alt=""
+                    className="w-4 h-4 sm:w-5 sm:h-5"
+                  />
+                </span>
+              </Link>
 
-              <button className="flex items-center gap-2 bg-[#0A1211] text-[#F2EAE4] px-6 py-3 rounded-lg font-bold text-xs sm:text-sm border border-[#E0D2B7]">
+              <a
+                href="/cv/Achraf-Chair-CV.pdf"
+                download
+                className="flex items-center gap-3 bg-[#0A1211] text-[#F2EAE4] px-6 py-3 rounded-lg font-bold text-xs sm:text-sm lg:text-base xl:text-lg border border-[#E0D2B7] transition hover:bg-[#111b19]"
+              >
                 <Image
                   src="/images/DOWNLOAD.png"
                   width={16}
                   height={16}
-                  alt=""
+                  alt="Download CV"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
                 />
-                DOWNLOAD CV
-              </button>
+                Download CV
+              </a>
             </div>
           </div>
         </div>

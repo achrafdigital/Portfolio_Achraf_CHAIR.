@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative min-h-screen w-full overflow-hidden bg-black">
       {/* Background Image */}
       <div className="absolute inset-0 bg-[url('/images/Herobg2.png')] bg-cover bg-center bg-no-repeat" />
 
@@ -11,19 +11,21 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-between px-6">
+      <div className="mt-6 relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-4 sm:px-6 sm:flex-row sm:justify-between md:flex-row md:justify-between">
         {/* LEFT: Text */}
-        <div className="w-full max-w-xl text-white">
-          <h1 className="text-4xl font-bold leading-tight md:text-5xl lg:text-[3.4rem]">
+        <div className="w-full max-w-xl text-center text-white sm:text-left md:text-left">
+          <h1 className="text-3xl font-bold leading-tight sm:text-[3rem] md:text-4xl lg:text-[3.4rem] xl:text-[4rem]">
             Designing <br />
             <span className="text-gray-200">Intelligence,</span> <br />
             <span
-              className="bg-linear-to-r 
-             from-[#D7D8DD] 
-             via-[#DBD7CA] 
-             to-[#E0D2B7]
-             bg-clip-text 
-             text-transparent"
+              className="
+                bg-linear-to-r
+                from-[#D7D8DD]
+                via-[#DBD7CA]
+                to-[#E0D2B7]
+                bg-clip-text
+                text-transparent
+              "
             >
               Building
             </span>
@@ -31,7 +33,7 @@ const Hero = () => {
             <span className="text-[#E0D2B7]">Tomorrow</span>
           </h1>
 
-          <p className="mt-1 max-w-md text-sm leading-relaxed text-gray-300 md:text-base">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-gray-300 sm:text-base md:text-base lg:text-lg xl:text-lg md:mx-0">
             I bridge human intuition and intelligent systems—designing and
             developing seamless digital experiences where elegant interfaces
             meet advanced AI. From concept to execution, I build intelligent,
@@ -39,70 +41,76 @@ const Hero = () => {
             human-centered design.
           </p>
 
-          <div className="mt-8 flex gap-4">
-            <button className="rounded-md bg-white w-48 px-6 py-3 text-sm font-semibold text-black hover:bg-gray-200 transition">
-              View My Work
-            </button>
+          {/* Buttons */}
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-start md:justify-start">
+            <Link href="/projects">
+              <span className="inline-flex w-full items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-gray-200 sm:w-48">
+                View My Work
+              </span>
+            </Link>
 
-            <button className="rounded-md border border-white/40  w-48 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
-              Let’s Collaborate
-            </button>
+            <Link href="#contact">
+              <span className="inline-flex w-full items-center justify-center rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10 sm:w-48">
+                Let’s Collaborate
+              </span>
+            </Link>
           </div>
 
-          <div className="mt-10 flex items-center gap-6">
-            <Link
-              href="https://github.com/achrafdevl"
-              target="_blank"
-              aria-label="GitHub"
-              className="opacity-70 transition hover:opacity-100"
-            >
-              <Image
-                src="/images/github.png"
-                alt="GitHub"
-                width={22}
-                height={22}
-              />
-            </Link>
-
-            <Link
-              href="https://www.linkedin.com/in/achraf-chair/"
-              target="_blank"
-              aria-label="LinkedIn"
-              className="opacity-70 transition hover:opacity-100"
-            >
-              <Image
-                src="/images/linkdin.png"
-                alt="LinkedIn"
-                width={22}
-                height={22}
-              />
-            </Link>
-
-            <Link
-              href="https://dribbble.com/Achraf_CHAIR"
-              target="_blank"
-              aria-label="Dribbble"
-              className="opacity-70 transition hover:opacity-100"
-            >
-              <Image
-                src="/images/dribbble.png"
-                alt="Dribbble"
-                width={22}
-                height={22}
-              />
-            </Link>
+          {/* Social Links */}
+          <div className="mt-8 flex items-center justify-center gap-5 sm:gap-6 sm:justify-start md:justify-start">
+            {[
+              {
+                href: "https://github.com/achrafdevl",
+                label: "GitHub",
+                src: "/images/github.png",
+              },
+              {
+                href: "https://www.linkedin.com/in/achraf-chair/",
+                label: "LinkedIn",
+                src: "/images/linkdin.png",
+              },
+              {
+                href: "https://dribbble.com/Achraf_CHAIR",
+                label: "Dribbble",
+                src: "/images/dribbble.png",
+              },
+            ].map((icon) => (
+              <Link
+                key={icon.label}
+                href={icon.href}
+                target="_blank"
+                aria-label={icon.label}
+                className="
+        flex items-center justify-center
+        rounded-full
+        p-2 sm:p-2.5
+        opacity-70
+        transition
+        hover:opacity-100
+        hover:scale-110
+      "
+              >
+                <Image
+                  src={icon.src}
+                  alt={icon.label}
+                  width={20}
+                  height={20}
+                  className="sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] lg:w-[26px] lg:h-[26px] xl:w-[28px] xl:h-[28px]"
+                />
+              </Link>
+            ))}
           </div>
         </div>
 
         {/* RIGHT: Image */}
-        <div className="relative hidden w-full max-w-md md:flex justify-end">
+        <div className="relative mt-14 w-full hidden max-w-sm justify-end sm:flex sm:max-w-xs md:mt-0 md:flex md:max-w-sm lg:max-w-md xl:max-w-lg">
           <Image
             src="/images/HeroProf.png"
             alt="Hero profile"
             width={500}
             height={500}
-            className="object-contain rounded-3xl drop-shadow-[0_0_40px_rgba(0,255,255,0.15)]"
             priority
+            className="rounded-3xl object-contain drop-shadow-[0_0_40px_rgba(0,255,255,0.15)] w-full h-auto"
           />
         </div>
       </div>

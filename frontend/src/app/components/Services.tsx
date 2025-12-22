@@ -58,7 +58,7 @@ const Services = () => {
 
   return (
     <section
-      className="min-h-screen py-20 px-6"
+      className="min-h-screen py-20 px-6 sm:px-8 lg:px-12 xl:px-16"
       style={{
         background:
           "linear-gradient(to top, #050709 20%, #072C32 45%, #064C55 60%, #0A7A88 80%)",
@@ -67,10 +67,10 @@ const Services = () => {
     >
       {/* HEADER */}
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#E0D2B7] mb-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-[#E0D2B7] mb-4">
           My Quality Services
         </h1>
-        <p className="text-sm sm:text-base lg:text-lg opacity-80 font-light">
+        <p className="text-sm sm:text-base lg:text-lg xl:text-xl opacity-80 font-light">
           Every service reflects my focus on quality, performance, and
           meaningful digital experiences.
         </p>
@@ -93,10 +93,10 @@ const Services = () => {
               }}
             >
               {/* HEADER ROW */}
-              <div className="flex items-center justify-between p-6 md:px-10">
-                <div className="flex items-center gap-6 md:gap-16">
+              <div className="flex items-center justify-between p-4 sm:p-6 md:px-8 lg:px-10">
+                <div className="flex items-center gap-4 sm:gap-6 md:gap-12 lg:gap-16">
                   <span
-                    className={`text-xl font-bold ${
+                    className={`text-lg sm:text-xl font-bold ${
                       isActive ? "text-[#071A1C]" : "text-[#E0D2B7]"
                     }`}
                   >
@@ -104,7 +104,7 @@ const Services = () => {
                   </span>
 
                   <h3
-                    className={`text-lg sm:text-xl md:text-2xl font-semibold ${
+                    className={`text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold ${
                       isActive ? "text-[#071A1C]" : "text-white"
                     }`}
                   >
@@ -113,13 +113,13 @@ const Services = () => {
                 </div>
 
                 {!isActive && (
-                  <p className="hidden lg:block text-gray-400 text-sm max-w-xs truncate">
+                  <p className="hidden lg:block text-gray-400 text-sm md:text-base max-w-xs xl:max-w-sm truncate">
                     {service.description}
                   </p>
                 )}
 
                 <ArrowUpRight
-                  className={`w-7 h-7 transition-transform duration-300 ${
+                  className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 ${
                     isActive ? "text-[#071A1C] rotate-45" : "text-white"
                   }`}
                 />
@@ -134,8 +134,8 @@ const Services = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-6 md:px-10 pb-8 md:ml-28 max-w-2xl">
-                      <p className="text-black text-base sm:text-lg leading-relaxed">
+                    <div className="px-4 sm:px-6 md:px-8 lg:px-10 pb-6 sm:pb-8 md:ml-20 lg:md:ml-24 xl:md:ml-28 max-w-2xl">
+                      <p className="text-black text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">
                         {service.description}
                       </p>
                     </div>

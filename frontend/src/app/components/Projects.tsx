@@ -9,6 +9,7 @@ import Link from "next/link";
 import projectsData from "../projects/data/projects.json";
 
 interface Project {
+  slug: string;
   title: string;
   category: string;
   description: string;
@@ -51,77 +52,80 @@ const RecentWorks: React.FC = () => {
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.slice(0, 3).map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative bg-[#0A1211] rounded-2xl border border-[#E0D2B7]/20 overflow-hidden hover:border-[#E0D2B7]/40 transition-all duration-500"
-            >
-              {/* Image Container */}
-              <div className="relative h-56 md:h-64 w-full overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Dark overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+            <Link key={index} href={`/projects/${project.slug}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative bg-[#0A1211] rounded-2xl border border-[#E0D2B7]/20 overflow-hidden hover:border-[#E0D2B7]/40 transition-all duration-500 cursor-pointer"
+              >
+                {/* Image Container */}
+                <div className="relative h-56 md:h-64 w-full overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
 
-                {/* Floating Category Tag */}
-                <div className="absolute top-4 left-4 bg-[#0A1211] backdrop-blur-md text-[#E0D2B7] text-[10px] sm:text-xs font-medium px-3 py-1.5 rounded-xl border border-[#E0D2B7]/40 shadow-2xl">
-                  {project.category}
-                </div>
+                  {/* Floating Category Tag */}
+                  <div className="absolute top-4 left-4 bg-[#0A1211] backdrop-blur-md text-[#E0D2B7] text-[10px] sm:text-xs font-medium px-3 py-1.5 rounded-xl border border-[#E0D2B7]/40 shadow-2xl">
+                    {project.category}
+                  </div>
 
-                {/* Top Action Buttons */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.githubUrl}
-                    className="p-2 bg-[#0A1211]/80 backdrop-blur-md rounded-xl border border-white/10 text-white hover:bg-white/10 transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    className="p-2 bg-[#0A1211]/80 backdrop-blur-md rounded-xl border border-white/10 text-white hover:bg-white/10 transition-colors"
-                    aria-label="Live Demo"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Content Area */}
-              <div className="p-6 md:p-8">
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#E0D2B7] mb-3 group-hover:text-white transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm sm:text-base opacity-80 font-light leading-relaxed mb-6 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] sm:text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-full text-gray-300 font-light"
+                  {/* Top Action Buttons */}
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <a
+                      href={project.githubUrl}
+                      onClick={(e) => e.stopPropagation()}
+                      className="p-2 bg-[#0A1211]/80 backdrop-blur-md rounded-xl border border-white/10 text-white hover:bg-white/10 transition-colors"
+                      aria-label="GitHub"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <Github className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={project.liveUrl}
+                      onClick={(e) => e.stopPropagation()}
+                      className="p-2 bg-[#0A1211]/80 backdrop-blur-md rounded-xl border border-white/10 text-white hover:bg-white/10 transition-colors"
+                      aria-label="Live Demo"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
 
-                {/* View Project Button */}
-                <button className="flex items-center justify-center gap-2 w-full bg-[#F2EAE4] text-[#050709] py-3 rounded-lg font-bold text-xs sm:text-sm hover:bg-white transition-all active:scale-95 group/btn">
-                  View Project{" "}
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-                </button>
-              </div>
-            </motion.div>
+                {/* Content Area */}
+                <div className="p-6 md:p-8">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#E0D2B7] mb-3 group-hover:text-white transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm sm:text-base opacity-80 font-light leading-relaxed mb-6 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="text-[10px] sm:text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-full text-gray-300 font-light"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* View Project Button */}
+                  <div className="flex items-center justify-center gap-2 w-full bg-[#F2EAE4] text-[#050709] py-3 rounded-lg font-bold text-xs sm:text-sm hover:bg-white transition-all active:scale-95 group/btn">
+                    View Project{" "}
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
