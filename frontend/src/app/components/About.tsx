@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import AnimatedName from "@/app/components/Animation";
 const About = () => {
   const badgeStyle =
     "absolute z-10 flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-[#0A1211] border border-[#E0D2B7]/40 rounded-xl text-[#E0D2B7] text-xs md:text-sm font-medium shadow-2xl whitespace-nowrap";
@@ -22,11 +22,18 @@ const About = () => {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#E0D2B7] mb-4">
             Transforming Vision into Digital Reality
           </h1>
+
           <p className="text-sm sm:text-base lg:text-lg opacity-80 font-light leading-relaxed">
-            I build intelligent digital products by combining full-stack
-            engineering, artificial intelligence, and thoughtful design.
+            I’m{" "}
+            <span className="font-bold text-[#368f9a]">
+              <AnimatedName text="Achraf CHAIR" />
+            </span>
+            , a Full-Stack Web & AI Developer. I build intelligent digital
+            products by combining full-stack engineering, artificial
+            intelligence, and thoughtful design.
             <br />
-            My work focuses on modern web applications and AI-powered solutions.
+            My work focuses on creating modern web applications and AI-powered
+            solutions that are reliable, scalable, and user-centric.
           </p>
         </div>
 
@@ -88,7 +95,7 @@ const About = () => {
           {/* DETAILS */}
           <div className="flex-1 max-w-2xl">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#E0D2B7] mb-4">
-              Développeur Web & IA Full Stack
+              <AnimatedName text="Développeur Web & IA Full Stack" />
             </h2>
 
             <p className="text-sm sm:text-base opacity-90 font-light leading-relaxed mb-8">
@@ -119,7 +126,7 @@ const About = () => {
                 {
                   title: "UI & UX Design",
                   desc: "Intuitive interfaces and design systems",
-                  icon: "/images/design.png",
+                  icon: "/images/Design.png",
                 },
               ].map((skill, i) => (
                 <div key={i} className="flex gap-4">

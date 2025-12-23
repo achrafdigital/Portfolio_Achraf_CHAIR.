@@ -57,7 +57,9 @@ export const metadata: Metadata = {
     images: ["https://achraf-CHAIR-portfolio.vercel.app/images/og-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/favicon-32x33.png",
+    apple: "/images/apple-touch-icon.png",
+    shortcut: "/images/favicon-32x33.png",
   },
 };
 
@@ -75,7 +77,9 @@ export default function RootLayout({
           href="https://achraf-CHAIR-portfolio.vercel.app"
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <Navbar />
 
         <main>{children}</main>
@@ -90,7 +94,8 @@ export default function RootLayout({
               name: "Achraf Chair",
               url: "https://achraf-CHAIR-portfolio.vercel.app",
               jobTitle: "Full-Stack & AI Engineer",
-              image: "https://achraf-CHAIR-portfolio.vercel.app/images/profile.png",
+              image:
+                "https://achraf-CHAIR-portfolio.vercel.app/images/profile.png",
               sameAs: [
                 "https://github.com/achrafdigital",
                 "https://www.linkedin.com/in/achraf-chair",

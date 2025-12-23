@@ -5,6 +5,7 @@ import { Send } from "lucide-react";
 import emailjs from "emailjs-com";
 import Link from "next/link";
 import Image from "next/image";
+import AnimatedName from "@/app/components/Animation";
 
 const ContactSection = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -70,7 +71,7 @@ const ContactSection = () => {
           {/* Left */}
           <div>
             <h3 className="text-2xl sm:text-3xl font-medium text-[#f3e8d0] mb-6">
-              Connect With Me
+              <AnimatedName text="Connect With Me" />
             </h3>
             <p className="text-gray-300 max-w-md leading-relaxed mb-8">
               I`&apos;m currently available for freelance work and full-time
@@ -82,7 +83,7 @@ const ContactSection = () => {
             <div className="mt-8 flex items-center justify-center gap-2 sm:gap-2 sm:justify-start md:justify-start">
               {[
                 {
-                  href: "https://github.com/achrafdevl",
+                  href: "https://github.com/achrafdigital",
                   label: "GitHub",
                   src: "/images/github.png",
                 },

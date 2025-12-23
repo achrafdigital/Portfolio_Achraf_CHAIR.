@@ -49,7 +49,6 @@ const services = [
   },
 ];
 
-
 const Services = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -59,6 +58,7 @@ const Services = () => {
 
   return (
     <section
+      id="services"
       className="min-h-screen py-20 px-6 sm:px-8 lg:px-12 xl:px-16"
       style={{
         background:
@@ -72,7 +72,8 @@ const Services = () => {
           My Quality Services
         </h1>
         <p className="text-sm sm:text-base lg:text-lg xl:text-xl opacity-80 font-light">
-          Every service reflects my focus on quality, performance, and meaningful digital experiences.
+          Every service reflects my focus on quality, performance, and
+          meaningful digital experiences.
         </p>
       </div>
 

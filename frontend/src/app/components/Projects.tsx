@@ -2,8 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
-import { ArrowRight } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import projectsData from "../projects/data/projects.json";
@@ -58,7 +57,7 @@ const RecentWorks: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative bg-[#0A1211] rounded-2xl border border-[#E0D2B7]/20 overflow-hidden hover:border-[#E0D2B7]/40 transition-all duration-500 cursor-pointer"
+                className="group relative bg-[#0A1211] rounded-2xl border border-[#E0D2B7]/20 overflow-hidden hover:border-[#E0D2B7]/40 transition-all duration-500 cursor-pointer flex flex-col"
               >
                 {/* Image Container */}
                 <div className="relative h-56 md:h-64 w-full overflow-hidden">
@@ -98,11 +97,13 @@ const RecentWorks: React.FC = () => {
                 </div>
 
                 {/* Content Area */}
-                <div className="p-6 md:p-8">
+                <div className="p-6 md:p-8 flex flex-col grow">
                   <h3 className="text-xl sm:text-2xl font-semibold text-[#E0D2B7] mb-3 group-hover:text-white transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm sm:text-base opacity-80 font-light leading-relaxed mb-6 line-clamp-3">
+
+                  {/* Description */}
+                  <p className="text-sm sm:text-base opacity-80 font-light leading-relaxed mb-6 grow line-clamp-3">
                     {project.description}
                   </p>
 
@@ -119,7 +120,7 @@ const RecentWorks: React.FC = () => {
                   </div>
 
                   {/* View Project Button */}
-                  <div className="flex items-center justify-center gap-2 w-full bg-[#F2EAE4] text-[#050709] py-3 rounded-lg font-bold text-xs sm:text-sm hover:bg-white transition-all active:scale-95 group/btn">
+                  <div className="flex items-center justify-center gap-2 w-full bg-[#F2EAE4] text-[#050709] py-3 rounded-lg font-bold text-xs sm:text-sm hover:bg-white transition-all active:scale-95 mt-auto">
                     View Project{" "}
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
                   </div>
