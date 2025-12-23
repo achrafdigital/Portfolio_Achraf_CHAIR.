@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import projectsData from "../data/projects.json";
 
 interface Project {
@@ -101,7 +101,7 @@ export default function ProjectDetailsPage() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white/5 border border-white/10 py-3 px-5 rounded-2xl hover:bg-teal-500/10 hover:border-teal-500/30 transition-all text-sm uppercase tracking-widest text-gray-300"
             >
-              <ArrowLeft className="w-3.5 h-3.5" /> GitHub
+              <Github className="w-4 h-4" /> GitHub
             </a>
           )}
           {project.liveUrl && (
@@ -111,7 +111,7 @@ export default function ProjectDetailsPage() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#E0D2B7] text-black py-3 px-5 rounded-2xl hover:bg-white transition-all text-sm uppercase tracking-widest font-bold"
             >
-              <ArrowLeft className="w-3.5 h-3.5" /> Live Demo
+              <ExternalLink className="w-4 h-4" /> Live Demo
             </a>
           )}
         </div>

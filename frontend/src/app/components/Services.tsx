@@ -7,47 +7,48 @@ import { ArrowUpRight } from "lucide-react";
 const services = [
   {
     id: "01",
-    title: "Front-End Development",
-    description:
-      "I build fast, responsive, and visually polished interfaces using modern frameworks such as React, Next.js, Vue, and TailwindCSS.",
-  },
-  {
-    id: "02",
-    title: "Back-End Development",
-    description:
-      "I create secure and scalable backend systems, including APIs, databases, authentication, and cloud infrastructure with Node.js and modern architectures.",
-  },
-  {
-    id: "03",
     title: "Full-Stack Development",
     description:
       "I manage the complete development lifecycle—from UI/UX and frontend logic to backend architecture—ensuring cohesive, high-quality digital products.",
   },
   {
-    id: "04",
-    title: "UI / UX Design",
+    id: "02",
+    title: "Front-End Development",
     description:
-      "I design intuitive interfaces and user experiences through structured workflows, wireframes, prototypes, and reusable design systems.",
+      "I build fast, responsive, and visually polished interfaces using modern frameworks such as React, Next.js, Vue, and TailwindCSS.",
   },
   {
-    id: "05",
+    id: "03",
+    title: "Back-End Development",
+    description:
+      "I create secure and scalable backend systems, including APIs, databases, authentication, and cloud infrastructure with Node.js and modern architectures.",
+  },
+  {
+    id: "04",
     title: "Artificial Intelligence",
     description:
       "I develop intelligent features using machine learning, deep learning, NLP, and computer vision, integrating AI models into real applications.",
   },
   {
-    id: "06",
-    title: "Workflow Automations",
-    description:
-      "I automate complex business processes using n8n and custom scripts to reduce manual work.",
-  },
-  {
-    id: "07",
+    id: "05",
     title: "Tailored AI Assistants & Digital Platforms",
     description:
       "I build custom AI assistants and intelligent platforms for customer support, productivity, and automation.",
   },
+  {
+    id: "06",
+    title: "UI / UX Design",
+    description:
+      "I design intuitive interfaces and user experiences through structured workflows, wireframes, prototypes, and reusable design systems.",
+  },
+  {
+    id: "07",
+    title: "Workflow Automations",
+    description:
+      "I automate complex business processes using n8n and custom scripts to reduce manual work.",
+  },
 ];
+
 
 const Services = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -71,8 +72,7 @@ const Services = () => {
           My Quality Services
         </h1>
         <p className="text-sm sm:text-base lg:text-lg xl:text-xl opacity-80 font-light">
-          Every service reflects my focus on quality, performance, and
-          meaningful digital experiences.
+          Every service reflects my focus on quality, performance, and meaningful digital experiences.
         </p>
       </div>
 
@@ -146,6 +146,26 @@ const Services = () => {
           );
         })}
       </div>
+
+      {/* JSON-LD Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: "Achraf Chair – Digital & AI Services",
+            provider: {
+              "@type": "Person",
+              name: "Achraf Chair",
+            },
+            serviceType: services.map((service) => service.title),
+            areaServed: "Worldwide",
+            description:
+              "Full-stack development, AI engineering, automation, UI/UX design, and intelligent digital platforms.",
+          }),
+        }}
+      />
     </section>
   );
 };
