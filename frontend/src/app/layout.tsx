@@ -14,37 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://achraf-CHAIR-portfolio.vercel.app")
-, // replace later with custom domain
+  metadataBase: new URL("https://achraf-CHAIR-portfolio.vercel.app"),
   title: {
     default: "Achraf Chair | Full-Stack & AI Engineer",
     template: "%s | Achraf Chair",
   },
   description:
     "Achraf Chair is a Full-Stack and AI Engineer specializing in modern web development, machine learning, APIs, automation, and intelligent digital platforms.",
-  keywords: [
-    "Achraf Chair",
-    "Full Stack Developer",
-    "Front-End Development",
-    "Back-End Development",
-    "AI Engineer",
-    "Next.js Developer",
-    "Machine Learning Engineer",
-    "NLP",
-    "FastAPI",
-    "React.js Developer",
-    "Web Development",
-    "Artificial Intelligence",
-    "Automation",
-    "Portfolio",
-    "Workflow Automation",
-    "Data Science",
-    "Data Science",
-    "AI Assistants",
-    "Tailored AI Assistants",
-    "Digital Platforms",
-    "SEO",
-  ],
   authors: [{ name: "Achraf CHAIR" }],
   creator: "Achraf CHAIR",
   robots: {
@@ -58,17 +34,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://achraf-portfolio.vercel.app",
+    url: "https://achraf-CHAIR-portfolio.vercel.app",
     title: "Achraf Chair | Full-Stack & AI Engineer",
     description:
       "Portfolio of Achraf Chair showcasing full-stack development, AI projects, APIs, automation, and intelligent platforms.",
     siteName: "Achraf Chair Portfolio",
     images: [
       {
-        url: "/images/og-image.png", // add later (1200x630)
+        url: "https://achraf-CHAIR-portfolio.vercel.app/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Achraf Chair Portfolio",
+        type: "image/png",
       },
     ],
   },
@@ -77,7 +54,10 @@ export const metadata: Metadata = {
     title: "Achraf Chair | Full-Stack & AI Engineer",
     description:
       "Explore full-stack, AI, automation, and machine learning projects by Achraf Chair.",
-    images: ["/images/og-image.png"],
+    images: ["https://achraf-CHAIR-portfolio.vercel.app/images/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
@@ -88,9 +68,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        {/* Canonical URL */}
+        <link
+          rel="canonical"
+          href="https://achraf-CHAIR-portfolio.vercel.app"
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
 
         <main>{children}</main>
@@ -103,8 +88,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Achraf Chair",
-              url: "https://achraf-portfolio.vercel.app",
+              url: "https://achraf-CHAIR-portfolio.vercel.app",
               jobTitle: "Full-Stack & AI Engineer",
+              image: "https://achraf-CHAIR-portfolio.vercel.app/images/profile.png",
               sameAs: [
                 "https://github.com/achrafdigital",
                 "https://www.linkedin.com/in/achraf-chair",
@@ -124,6 +110,25 @@ export default function RootLayout({
                 "Digital Platforms",
                 "SEO",
               ],
+            }),
+          }}
+        />
+
+        {/* Optional WebSite structured data for search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              url: "https://achraf-CHAIR-portfolio.vercel.app",
+              name: "Achraf Chair Portfolio",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://achraf-CHAIR-portfolio.vercel.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />
