@@ -26,10 +26,11 @@ const allProjects: Project[] = projectsData as Project[];
 
 const categories = [
   "All",
-  "AI & Healthcare",
-  "AI & Business",
-  "AI & Data Science",
-  "Web & AI",
+  "Web & Digital",
+  "AI & Machine Learning",
+  "Data Science & Analytics",
+  "Healthcare Applications",
+  "Business & Productivity",
   "MLOps & Deployment"
 ];
 

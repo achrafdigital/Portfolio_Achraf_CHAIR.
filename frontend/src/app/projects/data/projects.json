@@ -1,10 +1,49 @@
 [
   {
+    "slug": "webzen-digital-agency",
+    "title": "Webzen Digital Agency",
+    "category": "Web & Digital",
+    "description": "Modern digital agency website showcasing custom web development, branding, and 360° digital strategy services.",
+    "tags": ["Next.js", "React", "JavaScript", "SEO", "Responsive Design", "Digital Agency", "UX/UI", "Web Development"],
+    "image": "/images/webzen_cover.png",
+    "githubUrl": "https://github.com/ton-github/webzen",
+    "liveUrl": "https://webzendigitale.com"
+  },
+  {
+    "slug": "talentbridge-ai",
+    "title": "TalentBridge",
+    "category": "AI & Machine Learning",
+    "description": "AI-powered talent matching and career recommendation platform using classical NLP and local LLMs.",
+    "tags": ["Python", "FastAPI", "TF-IDF", "Cosine Similarity", "Recommendation System", "NLP", "Ollama", "LLM"],
+    "image": "/images/TalentBridge_PF.png",
+    "githubUrl": "https://github.com/achrafdigital/TalentBridge",
+    "liveUrl": "#"
+  },
+  {
+    "slug": "metal-bache-wz",
+    "title": "Metal Bâche WZ",
+    "category": "Web & Digital",
+    "description": "Modern showcase website for a metalwork and tarpaulin (bâche) service company, presenting services, gallery and contact information.",
+    "tags": ["JavaScript", "CSS", "Responsive Design", "Vercel", "Web Development", "UI/UX", "Business Website", "Portfolio"],
+    "image": "/images/metal_bache_cover.png",
+    "githubUrl": "https://github.com/achrafdigital/Metal-Bache-WZ",
+    "liveUrl": "https://metal-bache-wz.vercel.app"
+  },
+  {
+    "slug": "diabetoweb",
+    "title": "DiabetoWeb",
+    "category": "Healthcare Applications",
+    "description": "Medical web application for patient management and diabetes prediction.",
+    "tags": ["FastAPI", "PostgreSQL", "Machine Learning", "Healthcare", "Full Stack"],
+    "image": "/images/diabetoweb.png",
+    "githubUrl": "https://github.com/achrafdigital/CardioSpark",
+    "liveUrl": "#"
+  },
+  {
     "slug": "morocco-estate-ml",
     "title": "MoroccoEstateML",
-    "category": "AI & Business",
+    "category": "AI & Machine Learning",
     "description": "Intelligent tool for estimating real estate prices in the Moroccan market.",
-    "details": "This project aims to automate apartment price estimation in Morocco, a market characterized by strong price variability depending on location and property features. I designed a complete machine learning pipeline, starting with exploratory data analysis to understand distributions, correlations, and anomalies. I then cleaned and prepared the data (handling missing values, variable transformation, city encoding, and outlier detection and removal). Several regression models were trained and compared (Linear Regression, Random Forest, SVR, Gradient Boosting), evaluated using RMSE, MAE, and R². Cross-validation and hyperparameter optimization were applied to select the best-performing model, which was saved for future integration into a web-based real estate estimation application.",
     "tags": ["Python", "Pandas", "Scikit-learn", "Regression", "EDA"],
     "image": "/images/real-estate.png",
     "githubUrl": "https://github.com/achrafdigital/Simplon-Python-Challenges/tree/main/Brief_2_SalesHouses",
@@ -13,16 +52,9 @@
   {
     "slug": "diabetes-risk-ml",
     "title": "DiabetesRiskML",
-    "category": "AI & Healthcare",
+    "category": "Healthcare Applications",
     "description": "Diabetes risk prediction based on clinical data.",
-    "details": "This project aims to support early identification of patients at risk of diabetes using standard medical data. I conducted an in-depth exploratory data analysis to understand relationships between clinical variables. The data was cleaned by handling missing values, removing outliers, and standardizing numerical features. I first applied K-Means clustering to identify similar patient profiles and interpret high-risk groups. These clusters were then used as a basis for training supervised classification models (Random Forest, SVM, Gradient Boosting, Logistic Regression). Performance was evaluated using healthcare-appropriate metrics (precision, recall, F1-score) to select a reliable decision-support model.",
-    "tags": [
-      "Python",
-      "Scikit-learn",
-      "Clustering",
-      "Classification",
-      "Healthcare"
-    ],
+    "tags": ["Python", "Scikit-learn", "Clustering", "Classification", "Healthcare"],
     "image": "/images/diabetes-risk.png",
     "githubUrl": "https://github.com/achrafdigital/Brief__2__LaboBiom-dical.git",
     "liveUrl": "#"
@@ -30,44 +62,19 @@
   {
     "slug": "securemail-ai",
     "title": "SecureMail AI",
-    "category": "AI & Data Science",
+    "category": "Data Science & Analytics",
     "description": "Intelligent spam email detection system.",
-    "details": "This project focuses on developing an automated system capable of classifying emails as spam or non-spam to improve communication security. I designed a complete NLP pipeline including text cleaning, tokenization, stopword removal, punctuation removal, and stemming using NLTK. The textual data was vectorized using TF-IDF, and several classification models were trained and compared, including Naive Bayes, SVM, and Decision Tree. Models were evaluated using confusion matrices, precision, recall, and F1-score. A Streamlit interface was developed to allow users to test email classification in real time.",
     "tags": ["NLP", "NLTK", "TF-IDF", "Scikit-learn", "Streamlit"],
     "image": "/images/spam-filter.png",
     "githubUrl": "https://github.com/achrafdigital/SmartInbox",
     "liveUrl": "#"
   },
   {
-    "slug": "diabetoweb",
-    "title": "DiabetoWeb",
-    "category": "AI & Healthcare",
-    "description": "Medical web application for patient management and diabetes prediction.",
-    "details": "DiabetoWeb is a web application designed for physicians to centralize patient record management and assist in diabetes diagnosis. I developed the backend using FastAPI and PostgreSQL, including secure physician authentication, patient CRUD operations, and prediction storage. A pre-trained machine learning model is loaded at application startup to predict diabetes risk from entered clinical data. The frontend was built using HTML/CSS with Jinja2 to display forms, prediction results, and a summary dashboard. This project highlights full integration between ML, backend services, and databases.",
-    "tags": [
-      "FastAPI",
-      "PostgreSQL",
-      "Machine Learning",
-      "Healthcare",
-      "Full Stack"
-    ],
-    "image": "/images/diabetoweb.png",
-    "githubUrl": "https://github.com/achrafdigital/CardioSpark",
-    "liveUrl": "#"
-  },
-  {
     "slug": "booksmart",
     "title": "BookSmart",
-    "category": "Web & AI",
+    "category": "Business & Productivity",
     "description": "Intelligent book lending and recommendation platform.",
-    "details": "BookSmart is a web platform designed to modernize library management and provide personalized book recommendations. I worked on backend design using FastAPI and PostgreSQL to manage members, books, loans, and reservations. Book data was collected via web scraping using Selenium. A recommendation system based on cosine similarity analyzes user preferences and borrowing history to suggest relevant books. The project showcases the combined use of machine learning, web scraping, and backend development.",
-    "tags": [
-      "Recommendation System",
-      "FastAPI",
-      "PostgreSQL",
-      "Selenium",
-      "Cosine Similarity"
-    ],
+    "tags": ["Recommendation System", "FastAPI", "PostgreSQL", "Selenium", "Cosine Similarity"],
     "image": "/images/booksmart.png",
     "githubUrl": "https://github.com/achrafdigital/Bib_Readers",
     "liveUrl": "#"
@@ -75,9 +82,8 @@
   {
     "slug": "sentiment-api",
     "title": "Sentiment Analysis API",
-    "category": "MLOps & Deployment",
+    "category": "Data Science & Analytics",
     "description": "Sentiment analysis API based on a Hugging Face model.",
-    "details": "This project involves developing a REST API capable of automatically analyzing text sentiment and returning a confidence score. I used the pre-trained model distilbert-base-uncased-finetuned-sst-2-english to ensure good CPU performance. The API was developed with FastAPI, documented using Swagger, containerized with Docker, and publicly deployed on Hugging Face Spaces. A simple HTML page allows easy testing of the API. This project demonstrates my ability to deploy NLP models in production.",
     "tags": ["FastAPI", "Hugging Face", "NLP", "Docker", "API"],
     "image": "/images/sentiment-api.png",
     "githubUrl": "https://github.com/achrafdigital/Arborescense.git",
@@ -86,9 +92,8 @@
   {
     "slug": "obesitrack",
     "title": "ObesiTrack",
-    "category": "AI & Healthcare",
+    "category": "Healthcare Applications",
     "description": "Secure obesity prediction API with JWT authentication.",
-    "details": "ObesiTrack is a complete application combining machine learning and application security to predict a user's obesity level. I developed a FastAPI API secured with JWT, enabling registration, authentication, and protected access to predictions. Data and prediction history are stored in PostgreSQL. The multiclass classification model is integrated into the API and returns probabilities associated with each category. The entire application is dockerized to ensure portability and reproducibility.",
     "tags": ["FastAPI", "JWT", "Docker", "PostgreSQL", "MLOps"],
     "image": "/images/obesitrack.png",
     "githubUrl": "https://github.com/achrafdigital/ObesiTrack",
@@ -99,14 +104,7 @@
     "title": "CarPriceML",
     "category": "MLOps & Deployment",
     "description": "End-to-end used car price prediction system.",
-    "details": "This project aims to estimate used car prices based on their technical characteristics. I performed data preprocessing, exploratory analysis, and trained a regression model evaluated using RMSE, MAE, and R². The model is exposed through a FastAPI API and consumed by a Streamlit interface that allows users to enter vehicle features and obtain an instant estimate. The entire system is dockerized using Docker Compose, illustrating a complete MLOps approach.",
-    "tags": [
-      "Machine Learning",
-      "FastAPI",
-      "Streamlit",
-      "Docker",
-      "Regression"
-    ],
+    "tags": ["Machine Learning", "FastAPI", "Streamlit", "Docker", "Regression"],
     "image": "/images/car-price.png",
     "githubUrl": "https://github.com/achrafdigital/CarPriceML",
     "liveUrl": "#"
